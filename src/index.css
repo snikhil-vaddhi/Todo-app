@@ -1,13 +1,154 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  background: #ffd5be;
+}
+input {
+  width: 250px; /* Increase the width */
+  height: 20px; /* Increase the height */
+  padding: 10px; /* Add padding for more space */
+  font-size: 18px; /* Increase the font size */
+  border-radius: 0.5rem;
+  background: white;
+}
+button {
+  width: 44px; /* Increase the width */
+  height: 44px; /* Increase the height */
+  border-radius: 0.5rem;
+  font-size: 30px;
+  background: #52de97;
+}
+.container {
+  display: flex; /* Use flexbox layout */
+  justify-content: center; /* Center the tile horizontally */
+  align-items: center; /* Center the tile vertically */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Tile div */
+.tile {
+  border: 2px black solid;
+  border-radius: 0.5rem;
+  padding: 0rem 2rem;
+  width: 260px; /* Width of the tile */
+  height: 150px; /* Height of the tile */
+  background-color: #ff9776; /* Background color of the tile */
+}
+.tile h1,
+.tile h2 {
+  background-color: transparent; /* Reset the background color of text elements inside the tile */
+}
+.circle {
+  width: 7rem;
+  height: 7rem;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 40px;
+  color: #000;
+  text-align: center;
+  background: #bee4d2;
+
+  transform: translate(160px, -130px);
+}
+.circle p {
+  background-color: transparent;
+  transform: translateY(25px);
+}
+.taskbar {
+  margin-top: 2rem;
+}
+.button {
+  margin-left: 1rem;
+}
+.individual-task {
+  margin: 1rem 18rem;
+  justify-content: left; /* Center the tile horizontally */
+  align-items: center;
+  background: #f9ffea;
+  width: 21rem;
+  height: 3rem;
+  border: 2px solid black;
+}
+.individual-task p {
+  background: #f9ffea;
+  font-size: 12px;
+}
+.circle-task {
+  margin-left: 0.5rem;
+  margin-right: 1rem;
+  border: black solid 2px;
+  width: 2rem;
+  height: 2rem;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 40px;
+  color: #000;
+  text-align: center;
+  background-color: transparent;
+}
+.circle-task-done {
+  margin-left: 0.5rem;
+  margin-right: 1rem;
+  border: black solid 2px;
+  width: 2rem;
+  height: 2rem;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 40px;
+  color: #000;
+  text-align: center;
+  background: #0da85f;
+}
+.trash {
+  margin-right: 0.2rem;
+  background: transparent;
+  width: 33px; /* Increase the width */
+  height: 33px;
+  font-size: 20px;
+}
+.pen {
+  background: transparent;
+  width: 33px; /* Increase the width */
+  height: 33px;
+  font-size: 20px;
+}
+.container-task {
+  display: flex; /* Use flexbox layout */
+  justify-content: space-between; /* Center the tile horizontally */
+  align-items: left; /* Center the tile vertically */
+  /* background: transparent; */
+}
+.container-task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-left {
+  display: flex;
+  align-items: center;
+  background: #f9ffea;
+}
+
+.task-text {
+  margin: 0; /* Reset default margin */
+}
+
+.icon {
+  margin-left: auto;
+}
+.icon-container {
+  display: flex;
+  gap: 1rem; /* Adds 1rem space between the icons */
+  background: transparent;
+}
+.task-strikethrough {
+  text-decoration: line-through;
+}
+.updatebutton button {
+  margin-left: 1rem;
+  width: 90px;
+  height: 44px; /* Increase the height */
+  border-radius: 0.5rem;
+  font-size: 20px;
+}
+.all {
+  border: black solid 2px;
 }
