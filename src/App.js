@@ -35,8 +35,6 @@ export default function App() {
   const taskUpdate = false;
   const [editId, setEditId] = useState(null);
 
-  // console.log(addTasks);
-
   function handleAddTasks(newTask) {
     setAddTasks((tasks) => [...tasks, newTask]);
   }
@@ -55,17 +53,15 @@ export default function App() {
     setText(task.text);
     setAddTasks((addTasks) =>
       addTasks.map((t) => {
-        console.log(editId);
         if (t.id === task.id) {
           setEditId(t.id);
-          console.log(editId);
+
           return { ...t, taskUpdate: !t.taskUpdate };
         } else {
           return t;
         }
       })
     );
-    // console.log(addTasks);
   }
 
   return (
@@ -83,12 +79,21 @@ export default function App() {
         setAddTasks={setAddTasks}
         setEditId={setEditId}
       />
-      <TaskList
+      {/* <TaskList
         addTasks={addTasks}
+        // sortedList={sorted}
         // taskComplete={taskComplete}
         handleTaskComplete={handleTaskComplete}
         handleDelete={handleDelete}
         handleEditTask={handleEditTask}
+      /> */}
+      <Options
+        addTasks={addTasks}
+        handleTaskComplete={handleTaskComplete}
+        handleDelete={handleDelete}
+        handleEditTask={handleEditTask}
+        // sortedItems={sorted}
+        // handleSorted={setSorted}
       />
     </div>
   );
@@ -133,7 +138,6 @@ function TaskBar({
   setAddTasks,
   setEditId,
 }) {
-  // console.log(editId);
   function handleSubmit(e) {
     e.preventDefault();
     if (!text) return;
@@ -160,10 +164,10 @@ function TaskBar({
   function handleUpdate(e) {
     e.preventDefault();
     if (!text) return;
-    // console.log(editId);
+
     if (text.length > 30) text = text.slice(0, 30);
     const taskToUpdate = addTasks.filter((task) => task.id === 12345);
-    // console.log(taskToUpdate);
+
     if (!taskToUpdate) return;
     if (taskToUpdate) {
       setAddTasks((tasks) =>
@@ -211,14 +215,15 @@ function TaskList({
   handleTaskComplete,
   handleDelete,
   handleEditTask,
+  sorted,
 }) {
+  console.log(sorted);
   return (
     <ul>
       {addTasks.map((item, key) => (
         <Task
           task={item}
           key={item.id}
-          addTasks={addTasks}
           onClick={handleTaskComplete}
           handleDelete={handleDelete}
           handleEditTask={handleEditTask}
@@ -228,8 +233,7 @@ function TaskList({
     </ul>
   );
 }
-function Task({ task, addTasks, onClick, handleDelete, handleEditTask }) {
-  // console.log(task.taskComplete);
+function Task({ task, onClick, handleDelete, handleEditTask }) {
   return (
     <li className="container-task individual-task">
       <div className="task-left">
@@ -255,5 +259,48 @@ function Task({ task, addTasks, onClick, handleDelete, handleEditTask }) {
         </button>
       </div>
     </li>
+  );
+}
+function Options({
+  addTasks,
+  handleTaskComplete,
+  handleDelete,
+  handleEditTask,
+}) {
+  let sorted = addTasks;
+  const [option, setOption] = useState("original");
+
+  if (option === "original") sorted = addTasks;
+
+  if (option === "description")
+    sorted = addTasks.slice().sort((a, b) => a.text.localeCompare(b.text));
+
+  if (option === "completed")
+    sorted = addTasks.slice().sort((a, b) => a.taskComplete - b.taskComplete);
+
+  // console.log(sorted);
+  return (
+    <div>
+      <TaskList
+        sorted={sorted}
+        addTasks={sorted}
+        handleTaskComplete={handleTaskComplete}
+        handleDelete={handleDelete}
+        handleEditTask={handleEditTask}
+      />
+
+      <div className="container options">
+        <label>Sort By </label>
+        <select
+          className="option"
+          value={option}
+          onChange={(op) => setOption(op.target.value)}
+        >
+          <option value="completed">Completed Tasks</option>
+          <option value="description">Description</option>
+          <option value="original">Original order</option>
+        </select>
+      </div>
+    </div>
   );
 }

@@ -152,3 +152,12 @@ button {
 .all {
   border: black solid 2px;
 }
+.options {
+  font-size: 30px;
+}
+.option {
+  width: 225px;
+  height: 30px;
+  font-weight: bold;
+  background: white;
+}
