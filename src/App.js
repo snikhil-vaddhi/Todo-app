@@ -115,7 +115,7 @@ function TaskTracker({ addTasks }) {
   return (
     <div className="container">
       <div className="tile">
-        <h1>Task Done</h1>
+        <h1>Tasks Done</h1>
         <h2>Keep it up</h2>
         <div className="circle">
           <p>
