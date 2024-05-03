@@ -79,14 +79,6 @@ export default function App() {
         setAddTasks={setAddTasks}
         setEditId={setEditId}
       />
-      {/* <TaskList
-        addTasks={addTasks}
-        // sortedList={sorted}
-        // taskComplete={taskComplete}
-        handleTaskComplete={handleTaskComplete}
-        handleDelete={handleDelete}
-        handleEditTask={handleEditTask}
-      /> */}
       <Options
         addTasks={addTasks}
         handleTaskComplete={handleTaskComplete}
@@ -115,13 +107,13 @@ function TaskTracker({ addTasks }) {
   return (
     <div className="container">
       <div className="tile">
-        <h1>Tasks Done</h1>
-        <h2>Keep it up</h2>
+        <h1 className="heading-1">Tasks Done</h1>
         <div className="circle">
           <p>
             {tasksDone}/{addTasks.length}
           </p>
         </div>
+        <h2 className="heading-2">Keep it up</h2>
       </div>
     </div>
   );

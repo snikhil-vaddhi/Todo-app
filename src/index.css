@@ -6,8 +6,8 @@
 }
 .container {
   display: flex; /* Use flexbox layout */
-  justify-content: center; /* Center the tile horizontally */
-  align-items: center; /* Center the tile vertically */
+  justify-content: center;
+
   width: 100%;
   margin: 2rem 0;
 }
@@ -31,11 +31,27 @@ button {
 .tile {
   border: 2px black solid;
   border-radius: 0.5rem;
-  padding: 0rem 2rem;
-  width: 260px; /* Width of the tile */
-  height: 150px; /* Height of the tile */
-  background-color: #ff9776; /* Background color of the tile */
+  /* padding: 0rem 2rem; */
+  width: 330px;
+  height: 160px;
+  background-color: #ff9776;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: 1fr 40px;
+  align-items: center;
+  justify-items: center;
+  align-content: space-around;
+  row-gap: 1.6rem;
 }
+.heading-1 {
+  align-self: end;
+  /* margin-left: 8px; */
+}
+.heading-2 {
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
 .circle {
   width: 7rem;
   height: 7rem;
@@ -45,26 +61,21 @@ button {
   color: #000;
   text-align: center;
   background: #bee4d2;
+  grid-column: 2/3;
+  grid-row: 1/3;
 
-  transform: translate(170px, -113px);
+  /* transform: translate(170px, -113px); */
 }
-.tile h1 {
-  margin-top: 50px;
-  background-color: transparent;
-}
-
-.tile h2 {
-  margin-top: 1rem;
+.tile h1,
+h2 {
   background-color: transparent;
 }
 .circle p {
   background-color: transparent;
   transform: translateY(25px);
 }
-.taskbar {
-  margin-top: 2rem;
-}
-.button {
+
+.taskbar .button {
   margin-left: 1rem;
 }
 .individual-task {
@@ -153,15 +164,20 @@ button {
   font-size: 20px;
 }
 .all {
+  width: 750px;
+  margin: auto;
   border: black solid 5px;
-  /* margin: 0 auto; */
 }
 .options {
-  font-size: 30px;
+  display: flex;
+  gap: 1rem;
+  font-size: 25px;
+  justify-content: center;
 }
 .option {
-  width: 225px;
+  width: 250px;
   height: 30px;
   font-weight: bold;
   background: white;
+  cursor: pointer;
 }
